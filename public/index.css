@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.img {
+  margin: 0;
+}
+.img1 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  justify-self: center;
+}
+.firstPokMov {
+  justify-content: space-between;
+}
+.tag {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+.img2 {
+  grid-column-start: 4;
+  grid-row-start: 1;
+}
+.moves1 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  justify-self: center;
+  align-self: center;
+}
+.img3 {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+.img4 {
+  grid-column-start: 4;
+  grid-row-start: 3;
+}
+.First {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+.Second {
+  grid-column-start: 4;
+  grid-row-start: 2;
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+.list1 {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+.list2 {
+  grid-column-start: 4;
+  grid-row-start: 3;
+}
