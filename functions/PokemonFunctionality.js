@@ -325,6 +325,47 @@ function natureMod(nature, moveType) {
   }
 }
 //console.log(natureMod('Timid','Speed'))
+function att(att, lvl, nature) {
+  var attack = Math.floor(
+    Math.floor(((2 * att[0] + att[1] + att[2]) * lvl) / 100 + 5) *
+      natureMod(nature, "Attack")
+  );
+  return attack;
+}
+function hp(hp, lvl) {
+  var health =
+    Math.floor(((2 * hp[0] + hp[1] + hp[2]) * lvl) / 100) + (lvl + 10);
+  return health;
+}
+function def(att, lvl, nature) {
+  var defense = Math.floor(
+    Math.floor(((2 * def[0] + def[1] + def[2]) * lvl) / 100 + 5) *
+      natureMod(nature, "Defense")
+  );
+  return defense;
+}
+function spDef(att, lvl, nature) {
+  var specialDef = Math.floor(
+    Math.floor(((2 * spDef[0] + spDef[1] + spDef[2]) * lvl) / 100 + 5) *
+      natureMod(nature, "Sp. Def")
+  );
+  return specialDef;
+}
+function spAtt(att, lvl, nature) {
+  var specialAtt = Math.floor(
+    Math.floor(((2 * spAtt[0] + spAtt[1] + spAtt[2]) * lvl) / 100 + 5) *
+      natureMod(nature, "Sp. Atk")
+  );
+  return specialAtt;
+}
+function speed(att, lvl, nature) {
+  var speed = Math.floor(
+    Math.floor(((2 * spd[0] + spd[1] + spd[2]) * lvl) / 100 + 5) *
+      natureMod(nature, "Speed")
+  );
+  return speed;
+}
+
 function statsGen(hp, att, def, spd, spAtt, spDef, lvl, nature) {
   //[0] = BASE STAT
   //[1] = IV
@@ -441,6 +482,12 @@ module.exports = {
   genderGen: genderGen,
   catchRate: catchRate,
   getExp: getExp,
-  addXP: addXP
+  addXP: addXP,
+  att: att,
+  def: def,
+  spAtt: spAtt,
+  spDef: spDef,
+  speed: speed,
+  hp: hp
 };
 //console.log(blast[2][0].healthStat)
