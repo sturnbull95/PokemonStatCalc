@@ -19,7 +19,8 @@ class App extends Component {
       secondSelect: [],
       results1: [],
       results2: [],
-      flag: false,
+      flag1: false,
+      flag2: false,
       potential: "",
       moves1: [],
       moves2: []
@@ -128,10 +129,14 @@ class App extends Component {
             pokemon1: data[0].img,
             firstPok: "",
             results1: [],
-            flag: true
+            flag1: true
           },
           function() {
-            console.log(context.state.firstSelect, "hello", context.state.flag);
+            console.log(
+              context.state.firstSelect,
+              "hello",
+              context.state.flag1
+            );
           }
         );
       });
@@ -152,7 +157,7 @@ class App extends Component {
             pokemon2: data[0].img,
             secondPok: "",
             results2: [],
-            flag: true
+            flag2: true
           },
           function() {
             console.log(context.state.secondSelect);
@@ -163,15 +168,48 @@ class App extends Component {
 
   render() {
     var tag1;
-    if (this.state.flag) {
+    var list1;
+    if (this.state.flag1) {
       console.log(this.state.firstSelect);
       tag1 = (
         <div className="tag1">
           <Moves moves={this.state.firstSelect[0].moves} />
         </div>
       );
+      console.log(this.state.firstSelect[0], "firtst");
+      list1 = (
+        <div className="list1">
+          <Stats firstSelect={this.state.firstSelect[0]} />
+        </div>
+      );
     } else {
+      list1 = (
+        <div className="list1">
+          <Suggestions choose={this.choose1} results={this.state.results1} />
+        </div>
+      );
       tag1 = "";
+    }
+    var tag2;
+    var list2;
+    if (this.state.flag2) {
+      tag2 = (
+        <div className="tag2">
+          <Moves moves={this.state.secondSelect[0].moves} />
+        </div>
+      );
+      list2 = (
+        <div className="list2">
+          <Stats firstSelect={this.state.secondSelect[0]} />
+        </div>
+      );
+    } else {
+      tag2 = "";
+      list2 = (
+        <div className="list2">
+          <Suggestions choose={this.choose2} results={this.state.results2} />
+        </div>
+      );
     }
     return (
       <div className="container">
@@ -179,28 +217,24 @@ class App extends Component {
           <img className="img1" src={this.state.pokemon1} />
           <div className="moves1">{tag1}</div>
         </div>
-        <img className="img3" src={this.state.pokemon1} />
-        <img className="img4" src={this.state.pokemon2} />
-        <img className="img2" src={this.state.pokemon2} />
+        <div className="secondPokMov">
+          <img className="img2" src={this.state.pokemon2} />
+          <div className="moves2">{tag2}</div>
+        </div>
         <div className="First">
           <ChooseFirst
             firstPok={this.state.firstPok}
             handleInputChange1={this.handleInputChange1}
           />
         </div>
-        <div className="moves1">{tag1}</div>
         <div className="Second">
           <ChooseSecond
             secondPok={this.state.secondPok}
             handleInputChange2={this.handleInputChange2}
           />
         </div>
-        <div className="list1">
-          <Suggestions choose={this.choose1} results={this.state.results1} />
-        </div>
-        <div className="list2">
-          <Suggestions choose={this.choose2} results={this.state.results2} />
-        </div>
+        {list1}
+        {list2}
       </div>
     );
   }
