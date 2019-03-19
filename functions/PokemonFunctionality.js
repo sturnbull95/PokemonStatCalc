@@ -1,7 +1,7 @@
 // functions to be used in pokemon game
 
 var data = require("./data.js");
-var types = require("./typeMove.js");
+//var types = require("./typeMove.js");
 
 var multiplierDef = [
   { type: "normal", good: [], bad: ["rock", "steel"], none: ["ghost"] },
